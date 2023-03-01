@@ -83,4 +83,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
         with:
-          cname: test.com
+          cname: www.test.com
