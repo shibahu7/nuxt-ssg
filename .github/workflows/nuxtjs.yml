@@ -50,8 +50,7 @@ jobs:
         with:
           node-version: "16"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-          cache-dependency-path: app/yarn.lock
-          cache-dependency-path: app/package.json
+          # cache-dependency-path: app/yarn.lock
       - name: Setup Pages
         uses: actions/configure-pages@v3
         with:
@@ -71,8 +70,10 @@ jobs:
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        working-directory: ./app  
       - name: Static HTML export with Nuxt
         run: ${{ steps.detect-package-manager.outputs.manager }} run generate
+        working-directory: ./app
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
