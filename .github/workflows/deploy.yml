@@ -28,7 +28,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v1
       - name: Install dependencies
-        run: yarn i
+        run: yarn install
       - name: Static HTML export with Nuxt
         run: NUXT_APP_CDN_URL=https://shibahu7.github.io/ npm run generate
       - name: Upload artifact
